@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20sp">
+
+        <ImageView
+            android:id="@+id/senacImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/android"
+            android:scaleType="fitCenter"
+            android:layout_gravity="center"
+            android:layout_marginTop="30sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lista de Produtos"
+            android:gravity="center"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Produto"
+            android:textSize="20sp"
+            android:layout_marginTop="30sp"/>
+
+        <EditText
+            android:id="@+id/textProd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6sp"
+            android:hint="Digite o nome do produto"
+            android:inputType="textEmailAddress" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Custo"
+            android:textSize="20sp"
+            android:layout_marginTop="30sp"/>
+
+        <EditText
+            android:id="@+id/textCust"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6sp"
+            android:hint="Digite o valor de custo do produto"
+            android:inputType="textEmailAddress" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Venda"
+            android:textSize="20sp"
+            android:layout_marginTop="30sp"/>
+
+        <EditText
+            android:id="@+id/txtVend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6sp"
+            android:hint="Digite o preço na venda do produto"
+            android:inputType="textEmailAddress" />
+
+        <Button
+            android:layout_marginTop="20sp"
+            android:id="@+id/btLimpar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Limpar"/>
+
+        <Button
+            android:layout_marginTop="20sp"
+            android:id="@+id/btSalvar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Salvar"/>
+
+        <Button
+            android:layout_marginTop="20sp"
+            android:id="@+id/btAbrir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Abrir"/>
+
+        <Button
+            android:layout_marginTop="20sp"
+            android:id="@+id/btResultado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Resultado"/>
+    </LinearLayout>
+</ScrollView>
