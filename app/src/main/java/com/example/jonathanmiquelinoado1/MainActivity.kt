@@ -13,8 +13,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val sh = getSharedPreferences("produtos", Context.MODE_PRIVATE)
-        val sh1 = getSharedPreferences("produtos1", Context.MODE_PRIVATE)
+        val prod1 = getSharedPreferences("produtos", Context.MODE_PRIVATE)
+        val prod2 = getSharedPreferences("produtos1", Context.MODE_PRIVATE)
 
         //limpa a caixa de texto e nome da anotação
         btLimpar.setOnClickListener { v: View? ->
@@ -28,8 +28,8 @@ class MainActivity : AppCompatActivity() {
             if(textProd.text.isNotEmpty()){
 
                 //salvar produto
-                sh.edit().putString(textProd.text.toString(), textCust.text.toString()).apply()
-                sh1.edit().putString(textProd.text.toString(), txtVend.text.toString()).apply()
+                prod1.edit().putString(textProd.text.toString(), txtVend.text.toString()).apply()
+                prod2.edit().putString(textProd.text.toString(), textCust.text.toString()).apply()
                 Toast.makeText(this, "Produto salvo !", Toast.LENGTH_SHORT).show()
 
             }else{
@@ -42,8 +42,8 @@ class MainActivity : AppCompatActivity() {
 
         btAbrir.setOnClickListener { v: View? ->
             if(textProd.text.isNotEmpty()){
-                var nome = sh.getString(textProd.text.toString(),"")
-                var custo = sh1.getString(textProd.text.toString(),"")
+                var nome = prod1.getString(textProd.text.toString(),"")
+                var custo = prod2.getString(textProd.text.toString(),"")
 
                 if(nome!!.isNotEmpty()){
                     textCust.setText(nome)
@@ -60,60 +60,18 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-//        btResultado.setOnClickListener{v:View? ->
-//            if(textProd.text.isNotEmpty()){
-//                var preco = sh.getString(textProd.text.toString(),"")
-//                var custo = sh.getString(textProd.text.toString()+"Custo","")
-//                var calc = (preco!!.toDouble() - custo!!.toDouble())
-//                if(calc >0){
-//                    .setText("Lucro "+calc.toString())
-//                }else{
-//                    calculo.setText("Prejuízo "+calc.toString())
-//                }
-//            }
-//        }
-
-        //////////////////////////////////////////////////////
-//        btResultado.setOnClickListener { View ->
-//            var custo = textCust.text.toString()
-//            var venda = txtVend.text.toString()
-//            var nome = textProd.text.toString()
-//
-//
-//            if(nome.isNotEmpty() && custo.isNotEmpty() && venda.isNotEmpty()){
-//
-//                var resultado = venda.toDouble() - custo.toDouble()
-//                var intent = Intent(this, ResultadoActivity::class.java)
-//
-//                if(resultado < 0){
-//
-//                    intent.putExtra("resposta", "Prejuízo!")
-//                    intent.putExtra("resultado", resultado)
-//
-//                }else if(resultado > 0){
-//
-//                    intent.putExtra("resposta", "Lucro!")
-//                    intent.putExtra("resultado", resultado)
-//
-//
-//                }else{
-//
-//                    intent.putExtra("resposta", "Sem ganhos!")
-//                    intent.putExtra("resultado", resultado)
-//
-//                }
-//
-//                startActivity(intent)
-//
-//            }else{
-//
-//                Toast.makeText(this, "Todos os campos devem estar preenchidos", Toast.LENGTH_SHORT).show()
-//
-//            }
-//
-//        }
-
-        ///////////////////////////////////////////////////////
+        btResultado.setOnClickListener{v:View? ->
+            if(textProd.text.isNotEmpty()){
+                var preco = prod1.getString(textProd.text.toString(),"")
+                var custo = prod2.getString(textProd.text.toString(),"")
+                var calc =  (custo!!.toDouble() - preco!!.toDouble())
+                if(calc > 0){
+                    resultado.setText("Você teve Lucro :"+calc.toString())
+                }else{
+                    resultado.setText("Você teve Prejuízo: "+calc.toString())
+                }
+            }
+        }
 
     }
 }
